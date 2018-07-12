@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="Author" content="Dréano, Sören">
+  <meta name="Language" content="fr">
+  <meta name="Description" content="Bouygues Telecom et son bug du port 8080">
+  <title>SnapFin</title>
+</head>
+
+<body>
+  <div style="display:flex;justify-content:center;align-items:center;">
+    <div>
+      <div id="responseText"> Le responseText va s'afficher ici </div>
+      <div id="readyState"> Le readyState va s'afficher ici </div>
+      <button id="trigger">Trigger</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('trigger').addEventListener('click', function() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', window.location.href + '/bouygues');
+      xhr.withCredentials = true;
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onload = function() {
+        document.getElementById('responseText').innerHTML = xhr.responseText;
+        document.getElementById('readyState').innerHTML = xhr.readyState;
+      };
+      xhr.send();
+    });
+  </script>
+</body>
+</html>
