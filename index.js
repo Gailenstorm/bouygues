@@ -3,8 +3,6 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const PORT = (process.env.PORT || 5000);
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));
 })
@@ -13,4 +11,4 @@ app.get('/', (req, res) => {
   return res.json({ test: 'succes' });
 });
 
-app.listen(PORT);
+app.listen(5000);
